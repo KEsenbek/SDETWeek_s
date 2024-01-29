@@ -1,0 +1,29 @@
+package week9;
+
+public class Class9_8_1_Total_of_groceries_with_condition_Array_Data_Analysis {
+    public static void main(String[] args) {
+        calculateTotalCost(new int[]{2, 3, 4}, new String[]{"apple", "banana", "orange"},new double[]{0.5, 0.25, 0.75});
+    }
+    public static double calculateTotalCost(int[] quantities , String[] items, double[] costs) {
+
+        if (quantities.length != items.length || items.length != costs.length) {
+            return -1.0;
+        }
+
+        double sum = 0.0;
+
+        for (int i = 0; i < items.length; i++){
+
+            if (quantities[i] < 0 || costs[i] < 0) {
+                return -1.0;
+            }
+
+            if (items[i].length() % 2 == 0) {
+                sum += quantities[i] * costs[i];
+            }
+        }
+
+        return sum;
+    }
+
+}
